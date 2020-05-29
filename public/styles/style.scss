@@ -1,0 +1,107 @@
+@import 'mixins';
+$display: "500px";
+body{
+    margin:0;
+    padding:0;
+    min-width:350px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+ul,li,a{
+    padding:0;
+    margin:0;
+    list-style-type: none;
+    text-decoration: none;
+    color: black;
+}
+
+.navigation{
+    display:flex;
+    align-items: center;
+    padding:0 1em;
+    background-color: rgba(95, 158, 160, 0.445);
+ 
+    ul{
+        display:flex;
+        margin-left: auto;
+       
+    }
+
+    a{
+        padding:1em;
+        display: inline-block;
+        letter-spacing: .2em;
+        
+        &:hover{
+            color: white;
+            background-color:rgba(95, 158, 160, 0.445);
+
+
+        }
+    }
+}
+
+//product list
+.product-grid{
+    letter-spacing: .05em;
+    line-height: 1.5em;
+    margin:2em auto;
+    width:90%;
+    // border: 1px solid black;
+    display:grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    @include display($display){
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+       
+    }
+    
+    img{
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.096);
+        
+        
+    }
+
+    .product{
+        width:100%;
+        margin-bottom: 1em;
+        position: relative;
+
+        a{
+            // display:none;
+            position: absolute;
+            padding:.3em .5em;
+            border-radius: 1px;
+            background-color:rgba(95, 158, 160, 0.445);
+            bottom:0;
+            right:0;
+            &:hover {
+                background-color: rgb(95, 158, 160);
+            }
+        }
+
+        
+    }
+
+    .prod-details{
+        padding:.5em;
+      h1{
+          padding:0;
+          margin:0;
+          font-size: 1.5em;
+      }  
+      p{
+          padding:.2em;
+          margin:0;
+      }
+      .price{
+          font-size: 1em;
+      }
+    }
+
+
+
+    
+    
+}

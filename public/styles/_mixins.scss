@@ -1,5 +1,6 @@
 @mixin display($displaySize){
-    @include min-width(($displaySize)){
+    @media (min-width: #{$displaySize}){
         @content;
     }
+
 }
