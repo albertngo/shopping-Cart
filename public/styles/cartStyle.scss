@@ -1,0 +1,141 @@
+@import 'mixins';
+$display: "950px";
+main{
+    display:grid;
+    grid-template-columns: 1fr;
+
+    @include display($display){
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+.cart-container{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:1em;
+    width: 90%;
+    margin:2em auto;
+    max-width:800px;
+
+    .cart-product{
+        display:grid;
+        grid-template-columns: minmax(100px,200px) 1fr;
+        box-shadow: rgba(128, 128, 128, 0.493) 5px 5px;
+        img{
+            width:100%;
+            background-color: rgba(128, 128, 128, 0.096);
+        }
+    }
+
+    .product-details{
+        justify-self:left;
+        align-self: center;
+        width:80%;
+        margin-left: 2em;
+        
+        h1{
+            font-size: 1.5em;
+        }
+        .price{
+           font-size: 1.2em; 
+           font-weight: lighter;
+        }
+        input{
+            width:70%;
+        }
+        span{
+            font-size: larger;
+            cursor: pointer;
+            padding:.2em;
+        }
+        .remove{
+            display: block;
+            width:min-content;
+            margin:1em 1em 1em .4em;
+
+            &:hover{
+                color: red;
+            }
+        }      
+    }
+}
+
+//=====================================
+.checkout{
+    display: flex;
+    max-width: 800px;
+    width:90%;
+    margin:0 auto 3em auto;
+    position: relative;
+
+    @include display($display){
+        flex-direction: column;
+        margin:2em;
+        position:relative;
+        height:500px;
+        
+    }
+    
+    
+}
+.totalCost{
+
+    h1{
+        font-size: 1.1em;
+    }
+    
+    display:flex;
+    flex-direction: column;
+    width: 90%;
+    margin:2em auto;
+    max-width:800px;
+    align-items: flex-end;
+    flex:1 1 150px;
+
+    @include display($display){
+        flex: 1 1 auto;
+        justify-self: left;
+    }
+    
+}
+label{
+    display: block;
+}
+.paymentform{
+    display:flex;
+    flex-direction: column;
+    flex: 3 1 200px;
+
+    @include display($display){
+        flex: 0 1 auto;
+    }
+    
+input{
+    width:100%;
+}
+    .inputField{
+
+        padding:.5em;
+        margin:.3em;
+    
+
+    }    
+input[type=submit]{
+    width: 30%;
+    padding:1em;
+    margin:0 auto;
+    position: absolute;
+    right:0;
+    bottom:1em;
+
+    @include display($display){
+    bottom: unset;
+    right:unset;
+      left:1.20em;
+      top:310px;
+    
+    }
+}
+
+}
+

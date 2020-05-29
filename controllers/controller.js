@@ -3,5 +3,8 @@ module.exports = function (app){
         resp.render('index');
     })
 
+    app.get("/cart", (req,resp)=>{
+        resp.render('cart');
+    })
     
 }
