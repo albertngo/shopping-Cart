@@ -8,4 +8,3 @@ window.addEventListener("scroll",(event)=>{
     console.log(body.offsetHeight);
 })
 
-//assign all "add to cart" a handle
