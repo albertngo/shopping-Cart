@@ -1,6 +1,7 @@
 //add to cart events
 let addCart = document.querySelectorAll(".addCart");
-let productObj= new Object;
+let productInfo= new Object;
+let modal = document.querySelector(".addedCart");
 
 function getAllChildren(parentNode){
     if (Array.from(parentNode.children).length > 0){            
@@ -21,30 +22,46 @@ function getAllChildren(parentNode){
             if (!parentNode.className) name = "notHandled"  
             value = parentNode.innerHTML;
         }
-        productObj[name] = value;
+        productInfo[name] = value;
     }
 }
 
 for (let button of Array.from(addCart)){
-    button.addEventListener("click",()=>{
+    button.addEventListener("click",(event)=>{
+        event.stopPropagation();
         let product = button.parentElement
-    
+        
         getAllChildren(product); //gather all product information
-        console.log(productObj);
+        console.log(productInfo);
 
         //send as fetch request
         fetch("/", {
             method: "post",
             headers: {"Content-Type":"application/json"},
-            body: JSON.stringify(productObj)
-        }). then(()=>{
-            window.location.reload();
-        });
+            body: JSON.stringify(productInfo)
+        })
         
         //modal to say it was added
+        modal.style.display = "block";
         
     })
-    //fire post event
 
 
 }
+
+
+//modal event
+let addedCart = document.querySelector(".addedCart");
+addedCart.addEventListener("click",()=>{
+    modal.style.display = "none";
+    window.location.reload();
+})
+
+let navigation = document.querySelector(".navigation");
+
+window.addEventListener("scroll", event=>{
+    console.log(pageYOffset)
+    if (pageYOffset > 0){
+        navigation.style.backgroundColor  = "rgb(95, 158, 160)"
+    } else navigation.removeAttribute("style");
+})

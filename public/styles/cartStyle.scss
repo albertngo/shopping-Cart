@@ -12,7 +12,7 @@ main{
 .cart-container{
     display:grid;
     grid-template-columns: 1fr;
-    gap:1em;
+    gap:2em;
     width: 90%;
     margin:2em auto;
     max-width:800px;
@@ -37,11 +37,15 @@ main{
             font-size: 1.5em;
         }
         .price{
-           font-size: 1.2em; 
+           font-size: 1em; 
            font-weight: lighter;
         }
         input{
-            width:70%;
+            width:20%;
+            text-align: center;
+            // padding:1em;
+        font-size: larger;
+            
         }
         span{
             font-size: larger;

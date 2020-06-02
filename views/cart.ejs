@@ -18,7 +18,7 @@
         <h1>A L B .</h1>
         <ul>
             <li><a href="/" class="home">HOME</a></li>
-            <li><a href="./cart" class="cart">CART</a></li>
+            <li><a href="./cart" class="cart">CART<span class="numCart">(<%=numCart%>)</a></li>
         </ul>
 
     </nav>
@@ -26,86 +26,28 @@
 <main>
 
     <div class="cart-container">
+        <% if (checkOut) { %>
 
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: 39.99</h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
+            <%let objectKeys = Object.keys(checkOut)%>
+            <% objectKeys.forEach(item => { %>
+                <div class="cart-product">
 
-
-        </div>
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: 39.99</h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
+                    <img src= '<%=checkOut[item].img%>'>
+                    <div class="product-details">
+                        <h1 class ="prod-name"><%=checkOut[item]['prod-name']%></h1>
+                        <h2>CAD: $<span class ="price">$<%=checkOut[item].price%></span></h1>
+                        <span class = "minus">-</span><input type="text" name="amount" value="<%=checkOut[item].qty%>"><span class="plus">+</span>
+                        <a href="#" class="remove">Remove</a>
+                    </div>
+                </div>
 
 
-        </div>
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: 39.99</h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
 
 
-        </div>
-        
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: 39.99</h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
+            <% }) %>
+       
+        <%}%>
 
-
-        </div>
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: 39.99</h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
-
-
-        </div>
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: <span>39.99</span></h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
-
-
-        </div>
-        <div class="cart-product">
-            <img src="../images/products/product1 (3).png">
-            <div class="product-details">
-                <h1>M500s Corded Mouse</h1>
-                <h2 class ="price">CAD: 39.99</h1>
-                <span>-</span><input type="text" name="amount"><span>+</span>
-                <a href="#" class="remove">Remove</a>
-            </div>
-
-
-        </div>
-    
     </div>
 
 
@@ -149,7 +91,7 @@
 </main>
 
 
-<script type="module" src="/javascript/features.js"></script>
+<script type="module" src="/javascript/cartFeatures.js"></script>
 </body>
 
 
