@@ -26,7 +26,8 @@
 <main>
 
     <div class="cart-container">
-        <% if (checkOut) { %>
+        <% if (!checkOut) checkOut = {}%> 
+        <% if (Object.keys(checkOut).length > 0) { %>
 
             <%let objectKeys = Object.keys(checkOut)%>
             <% objectKeys.forEach(item => { %>
@@ -35,22 +36,23 @@
                     <img src= '<%=checkOut[item].img%>'>
                     <div class="product-details">
                         <h1 class ="prod-name"><%=checkOut[item]['prod-name']%></h1>
-                        <h2>CAD: $<span class ="price">$<%=checkOut[item].price%></span></h1>
-                        <span class = "minus">-</span><input type="text" name="amount" value="<%=checkOut[item].qty%>"><span class="plus">+</span>
+                        <h2>CAD: $<span class ="price"><%=checkOut[item].price%></span></h1>
+                        <span class = "minus">-</span><input class ="qty" type="text" name="qty" disabled="disabled" value="<%=checkOut[item].qty%>"><span class="plus">+</span>
                         <a href="#" class="remove">Remove</a>
                     </div>
                 </div>
 
-
-
-
             <% }) %>
        
-        <%}%>
+        <%} else {%>
+            <p class="emptyCart">YOUR CART IS EMPTY</p>
 
+            <% } %>
+        
     </div>
 
-
+    
+    
     
 
     <div class="checkout">
@@ -76,13 +78,12 @@
             </div>
 
             <input type="submit" value="Pay Now">
+            <button class="updateCart">Update Cart..</button>
 
         </form>
 
         <div class="totalCost">
-            <h1>Subtotal: $23.99</h1>
-            <h1>Taxes: $3.14</h1>
-            <h1>Total: $44.22</h1>        
+            <h1>Total: $<%=subTotal%></h1>
         </div>
     </div>
 

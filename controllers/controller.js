@@ -13,15 +13,21 @@ module.exports = function (app){
         //updateCart items
         model.addToCart(req.body);
         //update cart item view
-        resp.render('index', {numCart:model.checkOutQty, checkOut:model.checkOut});
+        console.log(model.checkOutQty);
+        resp.render('index', {subTotal:model.subTotal, numCart:model.checkOutQty, checkOut:model.checkOut});
         
     })
 
-    app.post("/cart",urlEncoded, (req,resp)=>{
-        console.log(req.body);
+    app.post("/cart-remove",urlEncoded, (req,resp)=>{
         console.log("request made");
-        model.updateCart(req.body, req.body["action"]);
-        resp.render('cart',{ numCart:model.checkOutQty, checkOut:model.checkOut});
+        model.removeCart(req.body);
+        resp.render('cart',{subTotal:model.subTotal, numCart:model.checkOutQty, checkOut:model.checkOut});
+    })
+
+    app.post("/cart-update",urlEncoded, (req,resp)=>{
+        console.log("request made");
+        model.updateCart(req.body);
+        resp.render('cart',{subTotal:model.subTotal, numCart:model.checkOutQty, checkOut:model.checkOut});
     })
 
 
@@ -32,7 +38,7 @@ module.exports = function (app){
     
 
     app.get("/cart", (req,resp)=>{
-        resp.render('cart',{ numCart:model.checkOutQty, checkOut:model.checkOut});
+        resp.render('cart',{subTotal:model.subTotal, numCart:model.checkOutQty, checkOut:model.checkOut});
     })
 
     

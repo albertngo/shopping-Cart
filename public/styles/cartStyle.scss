@@ -21,6 +21,7 @@ main{
         display:grid;
         grid-template-columns: minmax(100px,200px) 1fr;
         box-shadow: rgba(128, 128, 128, 0.493) 5px 5px;
+        height: min-content;
         img{
             width:100%;
             background-color: rgba(128, 128, 128, 0.096);
@@ -45,22 +46,44 @@ main{
             text-align: center;
             // padding:1em;
         font-size: larger;
+        
             
         }
         span{
             font-size: larger;
             cursor: pointer;
             padding:.2em;
+            user-select: none;
         }
         .remove{
             display: block;
             width:min-content;
             margin:1em 1em 1em .4em;
-
+            user-select: none;
             &:hover{
                 color: red;
             }
         }      
+    }
+}
+//---------------------------------
+.updateCart{
+    position: absolute;
+    top:0;
+    right:-2em;
+    padding:.2em;
+    margin: 0 2em 0 auto;
+    width: 15%;
+    min-width: 100px;
+    height:min-content;
+    justify-self: self-start;
+
+    @include display($display){
+        top:unset;
+        right:unset;
+        left:1.20em;
+        bottom:8em;
+        
     }
 }
 
@@ -143,3 +166,8 @@ input[type=submit]{
 
 }
 
+.emptyCart{
+     font-weight:bold;
+     text-align: center;
+     
+}
