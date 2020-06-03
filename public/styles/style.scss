@@ -1,16 +1,29 @@
 @import 'mixins';
 main{
     position: relative;
-}
 
+    margin-top: 0;
+}
+.title{
+    width:90%;
+    margin:2em auto 0 auto;
+    text-decoration: underline;
+}
 .mouseBack{
+    opacity:0;
     width: 90%;
-    margin:3em auto;
+    margin:0 auto;
+    padding-top: 3em;
     max-width: 1000px;
+    transition: all ease-in 1s;
     img{
         width:100%;
+
+  
     }
     .g903{
+    
+        text-shadow: 5px 5px rgba(128, 128, 128, 0.445);
         width:100%;
         font-weight: 900;
         text-align: center;
@@ -32,7 +45,7 @@ main{
     gap: 3em;
     
     @include display($display){
-        grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+        grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
        
     }
     

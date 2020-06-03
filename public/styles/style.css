@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   min-width: 480px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Maven Pro', sans-serif;
 }
 
 ul, li, a {
@@ -50,12 +50,23 @@ ul, li, a {
 
 main {
   position: relative;
+  margin-top: 0;
+}
+
+.title {
+  width: 90%;
+  margin: 2em auto 0 auto;
+  text-decoration: underline;
 }
 
 .mouseBack {
+  opacity: 0;
   width: 90%;
-  margin: 3em auto;
+  margin: 0 auto;
+  padding-top: 3em;
   max-width: 1000px;
+  -webkit-transition: all ease-in 1s;
+  transition: all ease-in 1s;
 }
 
 .mouseBack img {
@@ -63,6 +74,7 @@ main {
 }
 
 .mouseBack .g903 {
+  text-shadow: 5px 5px rgba(128, 128, 128, 0.445);
   width: 100%;
   font-weight: 900;
   text-align: center;
@@ -85,8 +97,8 @@ main {
 
 @media (min-width: 500px) {
   .product-grid {
-    -ms-grid-columns: (minmax(200px, 1fr))[auto-fill];
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }
 

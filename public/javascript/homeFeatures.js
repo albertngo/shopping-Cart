@@ -4,6 +4,10 @@ let productInfo= new Object;
 let modal = document.querySelector(".addedCart");
 import gatherProduct from "./_module.js";
 
+window.addEventListener("load",()=>{
+    let introImg = document.querySelector(".mouseBack");
+    introImg.style.opacity = "1";
+})
 
 for (let button of Array.from(addCart)){
     button.addEventListener("click",(event)=>{
